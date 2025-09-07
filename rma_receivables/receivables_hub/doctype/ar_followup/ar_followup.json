@@ -1,0 +1,81 @@
+{
+  "doctype": "DocType",
+  "name": "AR Followup",
+  "module": "Receivables Hub",
+  "custom": 1,
+  "is_single": 0,
+  "istable": 0,
+  "fields": [
+    {
+      "fieldname": "customer",
+      "label": "Customer",
+      "fieldtype": "Link",
+      "options": "Customer",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "amount",
+      "label": "Amount",
+      "fieldtype": "Currency",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "promise_text",
+      "label": "Promise Text",
+      "fieldtype": "Data",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "due_date",
+      "label": "Follow-up Date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "reqd": 1
+    },
+    {
+      "fieldname": "remind_at",
+      "label": "Remind At",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Open\\nDone\\nSnoozed\\nCancelled",
+      "default": "Open",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "notes",
+      "label": "Notes",
+      "fieldtype": "Small Text"
+    },
+    {
+      "fieldname": "whatsapp_to",
+      "label": "WhatsApp To (E.164)",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "last_sent_at",
+      "label": "Last Sent At",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "assigned_to",
+      "label": "Assigned To",
+      "fieldtype": "Link",
+      "options": "User"
+    },
+    {
+      "fieldname": "ref_doctype",
+      "label": "Reference Doctype",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "ref_docname",
+      "label": "Reference Name",
+      "fieldtype": "Data"
+    }
+  ]
+}

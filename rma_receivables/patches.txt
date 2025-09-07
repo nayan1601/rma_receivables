@@ -1,0 +1,2 @@
+rma_receivables.patches.v12_001_add_indexes.execute
+rma_receivables.patches.v12_002_add_followup_doctype.execute

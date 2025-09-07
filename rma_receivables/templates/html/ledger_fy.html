@@ -1,0 +1,22 @@
+
+<div>
+  <h1>Customer Ledger (FY-wise)</h1>
+  <div class="muted"><b>Company:</b> {{ company }} &nbsp;&nbsp; | &nbsp;&nbsp; <b>Customer:</b> {{ customer }} ({{ customer_code }}) &nbsp;&nbsp; | &nbsp;&nbsp; <b>Range:</b> {{ from_date }} → {{ to_date }} &nbsp;&nbsp; | &nbsp;&nbsp; <b>Currency:</b> {{ currency }}</div>
+  {% for sec in sections %}
+    <h2>Fiscal Year: {{ sec.fy_name }} ({{ sec.from }} → {{ sec.to }})</h2>
+    <table>
+      <thead><tr><th style="width: 12%;">Posting Date</th><th style="width: 16%;">Voucher</th><th>Reference (Remarks)</th><th style="width: 14%;">Type</th><th style="width: 10%;">Debit</th><th style="width: 10%;">Credit</th><th style="width: 12%;">Balance</th></tr></thead>
+      <tbody>
+      {% if sec.rows and sec.rows|length %}
+        {% for r in sec.rows %}
+        <tr><td>{{ r.posting_date }}</td><td>{{ r.voucher_no }}</td><td>{{ r.reference }}</td><td>{{ r.receivable_type }}</td>
+            <td style="text-align:right">{{ "{:,.2f}".format(r.debit or 0) }}</td><td style="text-align:right">{{ "{:,.2f}".format(r.credit or 0) }}</td><td style="text-align:right">{{ "{:,.2f}".format(r.balance or 0) }}</td></tr>
+        {% endfor %}
+      {% else %}
+        <tr><td colspan="7" class="muted">No entries in this fiscal year segment.</td></tr>
+      {% endif %}
+      </tbody>
+    </table>
+  {% endfor %}
+  {% if footer %}<div class="foot">{{ footer }}</div>{% endif %}
+</div>

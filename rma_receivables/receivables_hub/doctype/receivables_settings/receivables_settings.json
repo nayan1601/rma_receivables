@@ -1,0 +1,92 @@
+{
+  "doctype": "DocType",
+  "name": "Receivables Settings",
+  "module": "Receivables Hub",
+  "custom": 1,
+  "is_single": 1,
+  "istable": 0,
+  "fields": [
+    {
+      "fieldname": "read_only_mode",
+      "label": "Read-only Mode",
+      "fieldtype": "Check",
+      "default": "1"
+    },
+    {
+      "fieldname": "primary_bridge_url",
+      "label": "Primary Bridge URL",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "primary_token",
+      "label": "Primary Token",
+      "fieldtype": "Password"
+    },
+    {
+      "fieldname": "backup_bridge_url",
+      "label": "Backup Bridge URL",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "backup_token",
+      "label": "Backup Token",
+      "fieldtype": "Password"
+    },
+    {
+      "fieldname": "default_country_code",
+      "label": "Default Country Code (E.164)",
+      "fieldtype": "Data",
+      "default": "+91"
+    },
+    {
+      "fieldname": "message_template",
+      "label": "Message Template (Jinja)",
+      "fieldtype": "Text",
+      "default": "Dear {{ customer }}, your outstanding as on {{ as_on }} is {{ currency }} {{ total_outstanding }}."
+    },
+    {
+      "fieldname": "reminder_template",
+      "label": "Reminder Template (Jinja)",
+      "fieldtype": "Text",
+      "default": "Hi {{ customer }}, this is a reminder for your payment follow-up on {{ followup_date }} for {{ currency }} {{ amount or '' }}."
+    },
+    {
+      "fieldname": "remind_before_days",
+      "label": "Remind Before (days)",
+      "fieldtype": "Int",
+      "default": 0
+    },
+    {
+      "fieldname": "auto_create_todo",
+      "label": "Auto-create ToDo",
+      "fieldtype": "Check",
+      "default": 1
+    },
+    {
+      "fieldname": "pdf_footer",
+      "label": "PDF Footer",
+      "fieldtype": "Small Text",
+      "default": "This is a system-generated statement."
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1
+    },
+    {
+      "role": "Receivables Manager",
+      "read": 1,
+      "write": 1
+    },
+    {
+      "role": "Receivables User",
+      "read": 1
+    },
+    {
+      "role": "Receivables Viewer",
+      "read": 1
+    }
+  ]
+}

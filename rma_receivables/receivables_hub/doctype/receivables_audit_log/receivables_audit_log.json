@@ -1,0 +1,56 @@
+{
+  "doctype": "DocType",
+  "name": "Receivables Audit Log",
+  "module": "Receivables Hub",
+  "custom": 1,
+  "is_single": 0,
+  "istable": 0,
+  "fields": [
+    {
+      "fieldname": "action_type",
+      "label": "Action Type",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "document_type",
+      "label": "Document Type",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "document_name",
+      "label": "Document Name",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "user",
+      "label": "User",
+      "fieldtype": "Link",
+      "options": "User"
+    },
+    {
+      "fieldname": "timestamp",
+      "label": "Timestamp",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "details",
+      "label": "Details",
+      "fieldtype": "Long Text"
+    },
+    {
+      "fieldname": "ip_address",
+      "label": "IP Address",
+      "fieldtype": "Data"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1
+    },
+    {
+      "role": "Receivables Manager",
+      "read": 1
+    }
+  ]
+}

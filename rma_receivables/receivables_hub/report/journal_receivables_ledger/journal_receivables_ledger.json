@@ -1,0 +1,8 @@
+{
+  "doctype": "Report",
+  "name": "Journal Receivables Ledger",
+  "is_standard": "Yes",
+  "ref_doctype": "Journal Entry",
+  "report_type": "Query Report",
+  "module": "Receivables Hub"
+}

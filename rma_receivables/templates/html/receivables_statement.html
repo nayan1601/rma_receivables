@@ -1,0 +1,12 @@
+
+<div>
+  <h1>Receivables Statement</h1>
+  <div class="muted"><b>Company:</b> {{ company }} &nbsp;&nbsp; | &nbsp;&nbsp; <b>Customer:</b> {{ customer }} ({{ customer_code }}) &nbsp;&nbsp; | &nbsp;&nbsp; <b>As On:</b> {{ as_on }}</div>
+  <h2>Outstanding</h2>
+  <div style="font-size: 18px; font-weight: 700;">{{ currency }} {{ "{:,.2f}".format(outstanding or 0) }}</div>
+  <h2>Aging</h2>
+  {{ aging_bar | safe }}
+  <div class="rma-legend">0–30: {{ currency }} {{ "{:,.2f}".format(aging.get("b0_30",0)) }} &nbsp;|&nbsp; 31–60: {{ currency }} {{ "{:,.2f}".format(aging.get("b31_60",0)) }} &nbsp;|&nbsp; 61–90: {{ currency }} {{ "{:,.2f}".format(aging.get("b61_90",0)) }} &nbsp;|&nbsp; 90+: {{ currency }} {{ "{:,.2f}".format(aging.get("b90p",0)) }}</div>
+  {% if phone %}<div class="muted" style="margin-top:8px;"><b>WhatsApp:</b> {{ phone }}</div>{% endif %}
+  {% if footer %}<div class="foot">{{ footer }}</div>{% endif %}
+</div>

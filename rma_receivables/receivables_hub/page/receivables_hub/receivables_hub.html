@@ -1,0 +1,41 @@
+<div class="rma-recv-wrapper rma-wrapper" style="padding:16px;">
+  <div id="rma-live" aria-live="polite"></div>
+  <div class="rma-overlay" id="rma-overlay"><div class="rma-spinner"></div></div>
+  <div class="rma-tiles">
+    <div class="rma-tile"><div class="rma-t-h">Total Outstanding</div><div class="rma-t-v" id="rma-total">—</div></div>
+    <div class="rma-tile"><div class="rma-t-h">Customers with Dues</div><div class="rma-t-v" id="rma-count">—</div></div>
+    <div class="rma-tile"><div class="rma-t-h">As on</div><div class="rma-t-v" id="rma-date">—</div></div>
+  </div>
+  <div class="form form-inline rma-toolbar">
+    <input type="text" class="form-control input-sm" id="rma-search" placeholder="Search customer..." style="margin-right:8px;">
+    <label style="margin:0 8px 0 0;"><input type="checkbox" id="rma-overdue-only"> Overdue only (>0)</label>
+    <select class="form-control input-sm" id="rma-cg" style="width:180px;margin:0 8px;"></select>
+    <div class="rma-fy-wrap">
+      <select class="form-control input-sm" id="rma-fy-range" style="width:160px;">
+        <option value="current">Current FY</option>
+        <option value="last">Last FY</option>
+        <option value="last2">Last 2 FYs</option>
+        <option value="custom">Custom</option>
+      </select>
+      <input type="date" class="form-control input-sm" id="rma-from" style="display:none;width:150px;">
+      <input type="date" class="form-control input-sm" id="rma-to" style="display:none;width:150px;">
+      <span class="rma-fy-chip" id="rma-fy-chip" title="Active range used for 'Send + Ledger'">FY Range: Auto</span>
+    </div>
+    <button class="btn btn-primary btn-sm" id="rma-refresh">Refresh</button>
+    <button class="btn btn-default btn-sm" id="rma-send-all">Send All (Filtered)</button>
+    <span id="rma-status" class="text-muted" style="margin-left:12px;"></span>
+    <span class="rma-progress" id="rma-prog"></span>
+  </div>
+  <div class="small text-muted" style="margin-top:6px;">Click <b>Actions</b> to regenerate PDFs and WhatsApp to the saved number.</div>
+  <table class="table table-bordered rma-table" style="margin-top:12px;">
+    <thead><tr><th style="width:32%;">Customer</th><th class="text-right" style="width:16%;">Outstanding</th><th style="width:28%;">Aging</th><th style="width:24%;">Actions</th></tr></thead>
+    <tbody id="rma-body"></tbody>
+  </table>
+  <div class="rma-aging-legend">
+    <span class="l0">0–30</span><span class="l1">31–60</span><span class="l2">61–90</span><span class="l3">90+</span>
+  </div>
+</div>
+<div class="rma-mobile-bar">
+  <button class="btn btn-default btn-sm" id="rma-send-all-mobile">Send All (Filtered)</button>
+  <span class="rma-progress" id="rma-prog-mobile"></span>
+</div>
